@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
+from django.forms.widgets import SelectDateWidget
 # from django.http import HttpResponse
 
 from tracker.models import Item, Purchase
@@ -32,10 +33,30 @@ class PurchaseCreateView(CreateView):
     model = Purchase
     fields = ['item', 'quantity', 'date_purchased']
 
+    def get_form(self):
+        form = super().get_form()
+        form.fields['date_purchased'].widget = SelectDateWidget(
+            years=range(2000, 2051), 
+            empty_label=
+            ['--- Choose Year ---', '--- Choose Month ---', '--- Choose Day ---']
+        )
+        form.fields['date_purchased'].widget.attrs = {'style': 'width: 30%; display: inline-block; margin-right: 2%;'}
+        return form
+
 
 class PurchaseUpdateView(UpdateView):
     model = Purchase
     fields = ['item', 'quantity', 'date_purchased']
+
+    def get_form(self):
+        form = super().get_form()
+        form.fields['date_purchased'].widget = SelectDateWidget(
+            years=range(2000, 2051), 
+            empty_label=
+            ['--- Choose Year ---', '--- Choose Month ---', '--- Choose Day ---']
+        )
+        form.fields['date_purchased'].widget.attrs = {'style': 'width: 30%; display: inline-block; margin-right: 2%;'}
+        return form
 
 
 class PurchaseDeleteView(DeleteView):
