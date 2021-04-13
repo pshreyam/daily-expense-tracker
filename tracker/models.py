@@ -23,7 +23,8 @@ class Item(models.Model):
     #         img.save(self.img.path)
     
     def get_absolute_url(self):
-        return reverse('tracker-item-detail', kwargs={'pk' : self.pk})
+        return reverse('tracker:item-detail', kwargs={'pk' : self.pk})
+
 
 class Purchase(models.Model):
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
@@ -35,7 +36,7 @@ class Purchase(models.Model):
         return f'Purchase: {self.id}'
 
     def get_absolute_url(self):
-        return reverse('tracker-purchase-detail', kwargs={'pk' : self.pk})
+        return reverse('tracker:purchase-detail', kwargs={'pk' : self.pk})
 
     @staticmethod
     def total():

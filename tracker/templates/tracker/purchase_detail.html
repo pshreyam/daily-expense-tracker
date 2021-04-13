@@ -3,7 +3,7 @@
 {% block body %}
     <nav aria-label="breadcrumb" class="my-3">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{% url 'tracker-home' %}">Purchases</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'tracker:home' %}">Purchases</a></li>
             <li class="breadcrumb-item active" aria-current="page">Purchase of {{ purchase.item.name }} on {{ purchase.date_purchased | date:'D F d, Y' }}</li>
         </ol>
     </nav>
@@ -22,11 +22,11 @@
                 <p class="card-text"><small class="text-muted">Quantity: {{ purchase.quantity }}</small></p>
                 <p class="card-text"><small class="text-muted">Amount: Rs. {{ purchase.purchase_amount | floatformat:'2' }} @ Rs. {{ purchase.item.price | floatformat:'2' }}</small></p>
             
-                <a href="{% url 'tracker-purchase-update' purchase.id %}">
+                <a href="{% url 'tracker:purchase-update' purchase.id %}">
                     <i class="fas fa-edit"></i>
                 </a>
                 |
-                <a href="{% url 'tracker-purchase-delete' purchase.id %}">
+                <a href="{% url 'tracker:purchase-delete' purchase.id %}">
                     <i class="fas fa-trash"></i>
                 </a>
             </div>

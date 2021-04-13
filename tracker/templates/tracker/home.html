@@ -12,7 +12,7 @@
             <div class="col-md-6"></div>
 
             <div class="col-md-6">
-                <a class="btn btn-success float-right mb-3" href="{% url 'tracker-purchase-new' %}">
+                <a class="btn btn-success float-right mb-3" href="{% url 'tracker:purchase-new' %}">
                     <i class="fas fa-plus"></i>
                     Add New
                 </a>
@@ -34,12 +34,12 @@
                 {% for purchase in purchases %}
                     <tr>
                         <th scope="row">
-                            <a href="{% url 'tracker-purchase-detail' purchase.id %}">
+                            <a href="{% url 'tracker:purchase-detail' purchase.id %}">
                                 {{ forloop.counter }}
                             </a>
                         </th>
                         <td>
-                            <a href="{% url 'tracker-item-detail' purchase.item.id %}">
+                            <a href="{% url 'tracker:item-detail' purchase.item.id %}">
                                 {{ purchase.item.name }}
                             </a>
                         </td>
@@ -47,10 +47,10 @@
                         <td>{{ purchase.quantity }}</td>
                         <td>Rs. {{ purchase.purchase_amount | floatformat:'2' }}</td>
                         <td>
-                            <a href="{% url 'tracker-purchase-update' purchase.id %}">
+                            <a href="{% url 'tracker:purchase-update' purchase.id %}">
                                 <i class="fas fa-edit"></i>
                             </a>
-                            <a href="{% url 'tracker-purchase-delete' purchase.id %}">
+                            <a href="{% url 'tracker:purchase-delete' purchase.id %}">
                                 <i class="fas fa-trash"></i>
                             </a>
                         </td>

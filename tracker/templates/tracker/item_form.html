@@ -4,7 +4,7 @@
 {% block body %}
     <nav aria-label="breadcrumb" class="my-3">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{% url 'tracker-items' %}">Items</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'tracker:items' %}">Items</a></li>
             <li class="breadcrumb-item active" aria-current="page">Create New Item</li>
         </ol>
     </nav>
@@ -17,7 +17,7 @@
                 {{ form | crispy }}
             </fieldset>
             <div class = "form-group">
-                <button class = "btn btn-success" type = "submit">Add</button>
+                <button class = "btn btn-success" type = "submit">Update</button>
             </div>
         </form>
     </div>

@@ -25,7 +25,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="{% url 'tracker-home' %}">
+        <a class="navbar-brand" href="{% url 'tracker:home' %}">
             <img src="{% static 'tracker/images/logo.png' %}" width="30" height="30" alt="">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,14 +43,14 @@
               }
             </style>
             {% with request.resolver_match.url_name as url_name %}
-              <li class="nav-item ml-2 {% if url_name == 'tracker-home' %}active active-link{% endif %}">
-                <a class="nav-link" href="{% url 'tracker-home' %}">Home </a>
+              <li class="nav-item ml-2 {% if url_name == 'home' %}active active-link{% endif %}">
+                <a class="nav-link" href="{% url 'tracker:home' %}">Home </a>
               </li>
-              <li class="nav-item ml-2 {% if url_name == 'tracker-about' %}active active-link{% endif %}">
-                  <a class="nav-link" href="{% url 'tracker-about' %}">About</a>
+              <li class="nav-item ml-2 {% if url_name == 'about' %}active active-link{% endif %}">
+                  <a class="nav-link" href="{% url 'tracker:about' %}">About</a>
               </li>
-              <li class="nav-item ml-2 {% if url_name == 'tracker-items' %}active active-link{% endif %}">
-                <a class="nav-link" href="{% url 'tracker-items' %}">Items</a>
+              <li class="nav-item ml-2 {% if url_name == 'items' %}active active-link{% endif %}">
+                <a class="nav-link" href="{% url 'tracker:items' %}">Items</a>
               </li>
             {% endwith %}
           </ul>
