@@ -136,3 +136,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'uploaded')
 MEDIA_URL = '/uploaded/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+ADMIN_ROUTE = os.getenv('ADMIN_ROUTE', 'admin/')

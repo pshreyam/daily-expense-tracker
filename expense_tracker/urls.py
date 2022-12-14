@@ -19,8 +19,11 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+from expense_tracker.settings import ADMIN_ROUTE
+
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path(ADMIN_ROUTE, admin.site.urls),
     path('', include('tracker.urls', namespace='tracker')),
 ]
 
